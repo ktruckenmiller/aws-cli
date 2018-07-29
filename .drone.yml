@@ -2,3 +2,4 @@ pipeline:
   build:
     image: plugins/docker
     repo: ktruckenmiller/aws-cli
+    secrets: [ docker_username, docker_password ]
