@@ -12,6 +12,8 @@ steps:
       from_secret: username
     password:
       from_secret: password
-  when:
-      instance:
-        - cicd.kloudcover.com
+node:
+  instance: boston
+  # when:
+  #     instance:
+  #       - cicd.kloudcover.com
