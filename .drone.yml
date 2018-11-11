@@ -13,7 +13,7 @@ steps:
     password:
       from_secret: password
 node:
-  instance: boston
+  location: home
   # when:
   #     instance:
   #       - cicd.kloudcover.com
