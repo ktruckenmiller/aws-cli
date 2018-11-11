@@ -1,5 +1,25 @@
-pipeline:
-  build:
-    image: plugins/docker
+---
+# pipeline:
+#   build:
+#     image: plugins/docker
+#     repo: ktruckenmiller/aws-cli
+#     secrets: [ docker_username, docker_password ]
+kind: pipeline
+name: default
+
+steps:
+- name: frontend
+  image: plugins/docker
+  settings:
     repo: ktruckenmiller/aws-cli
-    secrets: [ docker_username, docker_password ]
+    tags: latest
+    username:
+      from_secret: username
+    password:
+      from_secret: password
+
+# - name: backend
+#   image: golang
+#   commands:
+#   - go build
+#   - go test
