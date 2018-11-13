@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Pull dependent image
+      - docker login -p $(aws ssm get-parameter --name /dockerhub/password --region us-east-1 --query Parameter.Value --output text --with-decryption) -u ktruckenmiller
+      - docker pull python:alpine
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t ktruckenmiller/aws-cli:latest .
+      - docker tag ktruckenmiller/aws-cli:latest ktruckenmiller/aws-cli:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker login -p $(aws ssm get-parameter --name /dockerhub/password)
+      - docker push ktruckenmiller/aws-cli:$IMAGE_TAG
+      - docker push ktruckenmiller/aws-cli:latest

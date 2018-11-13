@@ -3,17 +3,14 @@ kind: pipeline
 name: default
 
 steps:
-- name: frontend
-  image: plugins/docker
-  settings:
-    repo: ktruckenmiller/aws-cli
-    tags: latest
-    username:
-      from_secret: username
-    password:
-      from_secret: password
+  - name: frontend
+    image: plugins/docker
+    settings:
+      repo: ktruckenmiller/aws-cli
+      tags: latest
+      username:
+        from_secret: username
+      password:
+        from_secret: password
 node:
   location: home
-  # when:
-  #     instance:
-  #       - cicd.kloudcover.com
