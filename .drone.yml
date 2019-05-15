@@ -12,6 +12,15 @@ steps:
         from_secret: username
       password:
         from_secret: password
-
+        
+  - name: frontend
+    image: plugins/docker
+    settings:
+      repo: ktruckenmiller/awscli
+      tags: latest
+      username:
+        from_secret: username
+      password:
+        from_secret: password
 # node:
 #   location: home
