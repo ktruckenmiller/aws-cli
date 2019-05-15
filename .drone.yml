@@ -3,7 +3,7 @@ kind: pipeline
 name: default
 
 steps:
-  - name: frontend
+  - name: docker-new-registry
     image: plugins/docker
     settings:
       repo: ktruckenmiller/aws-cli
@@ -13,7 +13,7 @@ steps:
       password:
         from_secret: password
         
-  - name: frontend
+  - name: docker-old-registry
     image: plugins/docker
     settings:
       repo: ktruckenmiller/awscli
