@@ -12,7 +12,7 @@ steps:
         from_secret: username
       password:
         from_secret: password
-        
+
   - name: docker-old-registry
     image: plugins/docker
     settings:
@@ -22,5 +22,3 @@ steps:
         from_secret: username
       password:
         from_secret: password
-# node:
-#   location: home
