@@ -7,20 +7,22 @@ steps:
     image: plugins/docker
     settings:
       repo: ktruckenmiller/aws-cli
-      tags: latest
+      tags: "v2"
       username:
         from_secret: username
       password:
         from_secret: password
-        
+
   - name: docker-old-registry
     image: plugins/docker
     settings:
       repo: ktruckenmiller/awscli
-      tags: latest
+      tags: "v2"
       username:
         from_secret: username
       password:
         from_secret: password
-# node:
-#   location: home
+
+# trigger:
+#   branch: "v2"
+#   event: push
